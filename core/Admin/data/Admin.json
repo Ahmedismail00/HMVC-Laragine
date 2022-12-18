@@ -1,0 +1,25 @@
+{
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string",
+            "defination": "unique"
+        },
+        "password": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "is_active": {
+            "type": "boolean",
+            "defination": "default:0"
+        },
+        "type": {
+            "type": "enum:aa,bb,cc",
+            "defination": "default:aa"
+        }
+    }
+}
