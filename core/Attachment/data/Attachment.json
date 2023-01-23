@@ -1,0 +1,30 @@
+{
+    "attributes": {
+      "path": {
+          "type": "string"
+      },
+      "type": {
+          "type": "enum:image,video,doc",
+          "defination": "default:image"
+      },
+      "usage": {
+          "type": "string",
+          "defination": "nullable"
+
+      },
+      "display_name": {
+          "type": "string",
+          "defination": "nullable"
+
+      },
+      "attachmentable_type": {
+          "type": "string"
+      },
+      "attachmentable_id": {
+          "type": "integer"
+      }
+    },
+    "relations": {
+
+    }
+  }

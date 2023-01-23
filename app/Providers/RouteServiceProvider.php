@@ -29,13 +29,65 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+            $this->mapApiRoutes();
+            $this->mapWebRoutes();
+            $this->mapCoreApiRoutes();
+            $this->mapCoreWebRoutes();
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
         });
+    }
+
+    protected function mapWebRoutes()
+    {
+        foreach ($this->centralDomains() as $domain) {
+            Route::middleware('web')
+                ->domain($domain)
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web/web.php'));
+        }
+    }
+
+    protected function mapApiRoutes()
+    {
+        foreach ($this->centralDomains() as $domain) {
+            Route::prefix('api')
+                ->domain($domain)
+                ->middleware('api')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/api/api.php'));
+        }
+    }
+
+    protected function mapCoreApiRoutes()
+    {
+        $modulesNames = array_map(fn($e)=>lcfirst($e),\array_diff(scandir(base_path('core')), [".", "..","Base"]));
+        foreach($modulesNames as $module){
+            // foreach ($this->centralDomains() as $domain) {
+                Route::prefix('api/'.$module)
+                // ->domain($domain)
+                ->middleware('api')
+                ->group(base_path('core/'.ucfirst($module).'/routes/api.php'));
+            // }
+        }
+
+    }
+
+    protected function mapCoreWebRoutes()
+    {
+        $modulesNames = array_map(fn($e)=>lcfirst($e),\array_diff(scandir(base_path('core')), [".", "..","Base"]));
+        foreach($modulesNames as $module){
+            // foreach ($this->centralDomains() as $domain) {
+                Route::prefix('web/'.$module)
+                // ->domain($domain)
+                ->middleware('web')
+                ->group(base_path('core/'.ucfirst($module).'/routes/web.php'));
+            // }
+        }
+    }
+
+    protected function centralDomains(): array
+    {
+        return config('tenancy.central_domains');
     }
 
     /**

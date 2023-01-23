@@ -15,8 +15,8 @@ trait File
     {
         $module_root_dir = $is_core ? 'core' : 'plugins';
 
-        $this->loadRoutesFrom($dir . '/routes/web.php');
-        $this->loadRoutesFrom($dir . '/routes/api.php');
+        // $this->loadRoutesFrom($dir . '/routes/web.php');
+        // $this->loadRoutesFrom($dir . '/routes/api.php');
         $this->loadMigrationsFrom($dir . '/Database/Migrations');
         $this->loadViewsFrom($dir . '/views', "{$module_root_dir}#{$module}");
         $this->mergeConfigFrom($dir . '/config/main.php', "{$module_root_dir}_{$module}");

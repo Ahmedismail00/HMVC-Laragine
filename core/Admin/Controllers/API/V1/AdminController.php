@@ -47,6 +47,7 @@ class AdminController extends \Core\Base\Controllers\API\Controller
      */
     public function index()
     {
+        dd(1);
         return view($this->path . __FUNCTION__);
     }
 }
