@@ -190,7 +190,9 @@ return [
         App\Providers\TenancyServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-
+        Laravel\Tinker\TinkerServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -218,6 +220,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Image' => 'Intervention\Image\Facades\Image',
         'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ])->toArray(),
 
