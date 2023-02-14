@@ -38,7 +38,7 @@ Route::post('/image',function(Request $request){
     // dd($request->all());
 
     dd(1);
-})->name('image.test');
+});
 
 
 

@@ -1,0 +1,18 @@
+{
+    "Packages": {
+        "Laragine-HMVC": {
+            "link": "https://yepwoo.com/products/laragine/docs/v2/introduction#",
+            "commands": {
+                "Create new module": "php artisan laragine:module ModuleName",
+                "Initialize the unit": "php artisan laragine:unit UnitName --module=ModuleName --init",
+                "Create all the related stuff for the unit": "php artisan laragine:unit UnitName --module=ModuleName"
+            }
+        },
+        "laravel-api-to-postman": {
+            "link": "https://github.com/AndreasElia/laravel-api-to-postman",
+            "commands": {
+                "Usage": "php artisan export:postman",
+            }
+        }
+    }
+}

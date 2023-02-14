@@ -192,7 +192,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class,
         /*
          * Application Service Providers...
          */
